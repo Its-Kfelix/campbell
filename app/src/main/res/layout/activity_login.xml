@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+     <data>
+          <variable
+              name="viewmodel"
+              type="com.example.campbell.ui.auth.AuthViewModel" />
+     </data>
+
+     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+         android:id="@+id/rootLayout"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:layout_margin="16dp"
+         tools:context=".ui.auth.LoginActivity">
+
+          <ImageView
+              android:id="@+id/LognImv"
+              android:layout_width="140dp"
+              android:layout_height="170dp"
+              android:layout_marginBottom="10dp"
+              android:src="@drawable/ic_loginimg"
+              app:layout_constraintBottom_toTopOf="@+id/Email"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              android:contentDescription="@string/loginimage" />
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/Email"
+              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="@string/email"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@={viewmodel.email}"/>
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <com.google.android.material.textfield.TextInputLayout
+              android:id="@+id/Password"
+              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:hint="password"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/Email">
+
+               <com.google.android.material.textfield.TextInputEditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@={viewmodel.password}"
+                   android:inputType="textPassword" />
+          </com.google.android.material.textfield.TextInputLayout>
+
+          <TextView
+              android:id="@+id/tvFogotPassword"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="8dp"
+              android:textColor="@color/purple_500"
+              android:text="@string/forgot_password"
+              android:textSize="18sp"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/Password" />
+
+          <Button
+              android:onClick="@{viewmodel::onLoginButtonClicked}"
+              android:id="@+id/LoginBtn"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:text="@string/login"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/tvFogotPassword"
+              tools:ignore="UsingOnClickInXml" />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/don_t_have_an_account_signup"
+              android:textSize="16sp"
+              android:layout_marginTop="20dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/LoginBtn" />
+
+          <ProgressBar
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"/>
+
+
+     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

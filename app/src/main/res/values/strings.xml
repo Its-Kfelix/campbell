@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Campbell</string>
+    <string name="name">Name</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="signup">SignUp</string>
+    <string name="have_an_account_signin">Have an Account? SignIn</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="username">UserName</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_an_account_signup">Don\'t have an Account? SignUp</string>
+    <string name="loginimage">LoginImage</string>
+</resources>
