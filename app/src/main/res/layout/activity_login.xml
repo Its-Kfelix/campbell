@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -9,7 +9,7 @@
               type="com.example.campbell.ui.auth.AuthViewModel" />
      </data>
 
-     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     <androidx.constraintlayout.widget.ConstraintLayout
          android:id="@+id/rootLayout"
          android:layout_width="match_parent"
          android:layout_height="match_parent"
@@ -21,12 +21,12 @@
               android:layout_width="140dp"
               android:layout_height="170dp"
               android:layout_marginBottom="10dp"
+              android:contentDescription="@string/loginimage"
               android:src="@drawable/ic_loginimg"
               app:layout_constraintBottom_toTopOf="@+id/Email"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.5"
-              app:layout_constraintStart_toStartOf="parent"
-              android:contentDescription="@string/loginimage" />
+              app:layout_constraintStart_toStartOf="parent" />
 
           <com.google.android.material.textfield.TextInputLayout
               android:id="@+id/Email"
@@ -43,7 +43,7 @@
                <com.google.android.material.textfield.TextInputEditText
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="@={viewmodel.email}"/>
+                   android:text="@={viewmodel.email}" />
           </com.google.android.material.textfield.TextInputLayout>
 
           <com.google.android.material.textfield.TextInputLayout
@@ -61,8 +61,8 @@
                <com.google.android.material.textfield.TextInputEditText
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="@={viewmodel.password}"
-                   android:inputType="textPassword" />
+                   android:inputType="textPassword"
+                   android:text="@={viewmodel.password}" />
           </com.google.android.material.textfield.TextInputLayout>
 
           <TextView
@@ -70,18 +70,18 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="8dp"
-              android:textColor="@color/purple_500"
               android:text="@string/forgot_password"
+              android:textColor="@color/purple_500"
               android:textSize="18sp"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/Password" />
 
           <Button
-              android:onClick="@{viewmodel::onLoginButtonClicked}"
               android:id="@+id/LoginBtn"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="10dp"
+              android:onClick="@{viewmodel::onLoginButtonClicked}"
               android:text="@string/login"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.5"
@@ -92,9 +92,9 @@
           <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
               android:text="@string/don_t_have_an_account_signup"
               android:textSize="16sp"
-              android:layout_marginTop="20dp"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintHorizontal_bias="0.5"
               app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +102,13 @@
 
           <ProgressBar
               android:layout_width="wrap_content"
-              android:layout_height="wrap_content"/>
+              android:layout_height="wrap_content"
+              android:visibility="gone"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_bias="0.5"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
 
 
      </androidx.constraintlayout.widget.ConstraintLayout>
