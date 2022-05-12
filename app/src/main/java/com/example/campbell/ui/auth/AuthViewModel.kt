@@ -3,6 +3,7 @@ package com.example.campbell.ui.auth
 import android.content.Intent
 import android.view.View
 import androidx.lifecycle.ViewModel
+import com.example.campbell.data.repository.UserRepository
 
 class AuthViewModel:ViewModel() {
     var email:String? =null
@@ -17,7 +18,8 @@ class AuthViewModel:ViewModel() {
             return
         }
         //success
-        authListener?.onSuccess()
+        val loginResponse =UserRepository().userLogin(email!!,password!!)
+        authListener?.onSuccess(loginResponse)
     }
 
 }
